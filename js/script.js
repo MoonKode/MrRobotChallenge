@@ -104,7 +104,7 @@ const bruteForce = async () => {
                 break;
         }
     }
-    turnOff(['butbruteForce']);
+    turnOff(['butBruteForce']);
     for (var i = 0; i < resultlist.length; i++) {
         document.getElementById("corguess").innerHTML = resultlist[i];
         await sleep(1000);
@@ -159,7 +159,7 @@ const pwcorr = async () => {
 /* --------------------------------------------------Terminal 4 --------------------------------*/
 const terminal4 = () => {
     turnOff(['screen','mainscreen']);
-    turnOn('terninal4');
+    turnOn('terminal4');
 }
 
 const findcomb = async () => {
