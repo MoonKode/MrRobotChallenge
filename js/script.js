@@ -17,42 +17,34 @@ var passcodes = [
     [4, 3, 4, 3]
 ];
 
+const turnOff = (stringArray) => {
+    stringArray.forEach(id => document.getElementById(id).style.display='none' )
+}
 
-async function mainscreen() {
+const turnOn = (id) => {
+    document.getElementById(id).style.display = '';
+}
+const mainscreen = async () => {
     if (battery > 0) {
+        turnOff(['screen','terminal1','terminal2','terminal3','terminal4'])
+        turnOn('mainscreen');
         document.getElementById('percentBattery').innerHTML = battery;
         document.getElementById('usern').innerHTML = userName;
-        document.getElementById('screen').style.display = 'none';
-        document.getElementById('mainscreen').style.display = '';
-        document.getElementById('terminal1').style.display = 'none';
-        document.getElementById('terminal2').style.display = 'none';
-        document.getElementById('terminal3').style.display = 'none';
-        document.getElementById('terminal4').style.display = 'none';
         document.getElementById("hackter").innerHTML = hackedTerminals;
     } else {
         document.getElementById('percentBattery').innerHTML = battery;
         document.getElementById('usern').innerHTML = userName;
-        document.getElementById('screen').style.display = 'none';
+        turnOff( ['screen','nobattery','terminal1', 'terminal2','terminal3','terminal4'])
         document.getElementById('mainscreen').style.display = '';
-        document.getElementById('nobattery').style.display = 'none';
-        document.getElementById('terminal1').style.display = 'none';
-        document.getElementById('terminal2').style.display = 'none';
-        document.getElementById('terminal3').style.display = 'none';
-        document.getElementById('terminal4').style.display = 'none';
         document.getElementById("hackter").innerHTML = hackedTerminals;
         await sleep(2000);
         document.getElementById('percentBattery').innerHTML = battery;
         document.getElementById('usern').innerHTML = userName;
-        document.getElementById('screen').style.display = 'none';
-        document.getElementById('mainscreen').style.display = 'none';
-        document.getElementById('nobattery').style.display = '';
-        document.getElementById('terminal1').style.display = 'none';
-        document.getElementById('terminal2').style.display = 'none';
-        document.getElementById('terminal3').style.display = 'none';
-        document.getElementById('terminal4').style.display = 'none';
+        turnOff(['mainscreen'])
+        turnOn('nobattery');
         document.getElementById("hackter").innerHTML = hackedTerminals;
         await sleep(4000);
-        document.getElementById("shutdown").style.display = '';
+        turnOn('shutdown');
         await sleep(5000);
         window.close();
     }
@@ -72,28 +64,25 @@ const checkUser = () => {
 
 /*---------------------------------------Terminal 1------------------------------------------*/
 const terminal1 = () => {
-    document.getElementById('screen').style.display = 'none';
-    document.getElementById('mainscreen').style.display = 'none';
-    document.getElementById('terminal1').style.display = '';
+    turnOff(['screen','mainscreen']);
+    turnOn('terminal1');
 }
 
 const checkPass = () => {
     var pwd = document.getElementById('terminal1text').value;
     if (pwd == "CapitalismDidNothingWrong") {
-        document.getElementById("checkpassword").style.display = 'none';
-        document.getElementById("passwordcorrect").style.display = '';
-        document.getElementById('wrongpass').style.display = 'none';
+        turnOn('passwordcorrect');
+        turnOff(['checkpassword','worngpass']);
     } else {
-        document.getElementById("passwordcorrect").style.display = 'none';
-        document.getElementById('wrongpass').style.display = '';
+        turnOff(['passwordcorrect']);
+        turnOn('wrongpassword');
     }
 }
 /*------------------------------------------------------Terminal 2 ------------------------------------*/
 
 const terminal2 = () => {
-    document.getElementById('screen').style.display = 'none';
-    document.getElementById('mainscreen').style.display = 'none';
-    document.getElementById('terminal2').style.display = '';
+    turnOff(['screen','mainscreen']);
+    turnOn('terminal2');
 }
 const bruteForce = async () => {
     var resultlist = [];
@@ -115,11 +104,10 @@ const bruteForce = async () => {
                 break;
         }
     }
-    document.getElementById("butBruteForce").style.display = 'none';
+    turnOff(['butbruteForce']);
     for (var i = 0; i < resultlist.length; i++) {
         document.getElementById("corguess").innerHTML = resultlist[i];
         await sleep(1000);
-
     }
     await sleep(2000);
     document.getElementById("corguess").innerHTML += " <br>Filling Password: "
@@ -128,15 +116,14 @@ const bruteForce = async () => {
         document.getElementById("corguess").innerHTML += " *";
     }
     await sleep(1000);
-    document.getElementById("ter2").style.display = "none";
-    document.getElementById("passwordcorrect1").style.display = "";
+    turnOff(['ter2']);
+    turnOn('passwordcorrect1');
 }
 
 /*-------------------------------------------------Terminal 3------------------------------------------*/
 const terminal3 = () => {
-    document.getElementById('screen').style.display = 'none';
-    document.getElementById('mainscreen').style.display = 'none';
-    document.getElementById('terminal3').style.display = '';
+    turnOff(['screen','mainscreen']);
+    turnOn('terminal3');
     for (i = 0; i < outboundTraffic.length; i++) {
         document.getElementById('decrypted').innerHTML += outboundTraffic[i] + "                 ";
     }
@@ -171,9 +158,8 @@ const pwcorr = async () => {
 
 /* --------------------------------------------------Terminal 4 --------------------------------*/
 const terminal4 = () => {
-    document.getElementById('screen').style.display = 'none';
-    document.getElementById('mainscreen').style.display = 'none';
-    document.getElementById('terminal4').style.display = '';
+    turnOff(['screen','mainscreen']);
+    turnOn('terninal4');
 }
 
 const findcomb = async () => {
@@ -191,7 +177,7 @@ const findcomb = async () => {
         }
         var frase = (x + " - " + passcodes[x] + " This passcode has " + even + " even numbers." + "<br>")
         document.getElementById("arrays").innerHTML += frase;
-        document.getElementById('findcorrectcombination').style.display = 'none';
+        turnOff(['findcorrectcombination']);
         await sleep(1000);
     }
     var passwd = '';
@@ -203,16 +189,16 @@ const findcomb = async () => {
     await sleep(2000);
     document.getElementById('arrays').innerHTML += ("<br><br>So here's your passcode:   " + passwd)
     await sleep(5000);
-    document.getElementById('ter4').style.display = 'none';
-    document.getElementById('passwordcorrect4').style.display = '';
+    turnOff(['ter4']);
+    turnOn('passwordcorrect4');
 }
 
 /*----------------------------------------------------Other Stuff-------------------------------*/
 const drainBattery = () => {
     battery -= 25;
     document.getElementById("batt").innerHTML = battery;
-    document.getElementById("p1").style.display = 'none';
-    document.getElementById("p2").style.display = '';
+    turnOff(['p1']);
+    turnOn('p2');
 }
 
 const backtomain1 = () => {
