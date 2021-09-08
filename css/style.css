@@ -1,0 +1,299 @@
+/*  OK...   This is going to be a looooonnnggg   one    xD */
+
+@font-face {
+    font-family: jedi;
+    src: url(../assets/Starjedi.ttf);
+}
+
+@font-face {
+    font-family: terminal;
+    src: url(../assets/terminal.ttf);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("../assets/hacker.jpg");
+    background-size: cover;
+}
+
+
+
+#screen {
+    text-align: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 20px;
+    height: 40vw;
+    margin-top: 5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: #52B152;
+    border-style: dashed
+}
+
+#input1,
+
+#terminal1text,
+#decrypted,
+#dec1 {
+    font-family: 'Ubuntu+Mono', sans-serif;
+    border-color: #52B152;
+    font-size: 2vw;
+    background: none;
+    border-radius: 10px;
+    text-align: center;
+    color: #52B152;
+}
+
+#input1,
+#terminal1text,
+#but1,
+#but2:focus {
+    outline: none;
+}
+
+#but1,
+#but2,
+#butBruteForce,
+#buttrash1,
+#butTrash {
+    border-radius: 10px;
+    background: none;
+    border-color: #52B152;
+    font-size: 2vw;
+    font-family: 'Ubuntu+Mono', sans-serif;
+    color: #52B152;
+    text-align: center;
+    text-decoration: none;
+}
+
+#but1:visited,
+#but2:visited,
+#butBruteForce:visited,
+#butTrash:visited,
+#buttrash1:visited,
+    {
+    border: none;
+}
+
+placeholder {
+    color: #7ADDD0;
+    opacity: 50%;
+}
+
+#nsoc {
+    font-family: 'jedi';
+
+    font-size: 5vw;
+    color: #52B152;
+    text-align: center;
+    padding-top: 10%;
+}
+
+#distro {
+    animation: flickerAnimation 5s infinite;
+    color: #57B354;
+    font-family: 'Geo', sans-serif;
+    text-align: center;
+    font-size: 3vw;
+}
+
+#bootsyst {
+    font-family: 'Ubuntu+Mono', sans-serif;
+    color: azure;
+}
+
+
+
+#mainscreen,
+#terminal1,
+#terminal2,
+#terminal3,
+#terminal4,
+#nobattery {
+    text-align: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 20px;
+    height: 40vw;
+    margin-top: 5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: #52B152;
+    border-style: dashed;
+    position: relative;
+}
+
+#nsoc1 {
+
+    animation: coloranim 10s infinite;
+
+
+    font-family: 'jedi';
+    font-size: 5vw;
+    color: #52B152;
+    text-align: center;
+}
+
+#usern {
+    color: #28bbed;
+}
+
+.terminalText {
+    font-size: 2vw;
+
+
+
+    font-family: 'Geo',
+    sans-serif;
+    color: #57B354;
+    font-size: 2vw;
+    margin: auto;
+}
+
+.buttons {
+    padding: 1%;
+    text-align: center;
+}
+
+#button1,
+#button2,
+#button3,
+#button4,
+#button1:focus,
+#button2:focus,
+#button3:focus,
+#button4:focus,
+#butBruteForce:focus,
+#butTrash:focus,
+
+#findcorrectcombination,
+#findcorrectcombination:focus {
+    outline: none;
+    border-color: #28bbed;
+
+
+    font-family: 'Geo', sans-serif;
+    background-color: #57B354;
+    border-radius: 0.5em;
+    font-size: 2vw;
+    color: black;
+
+    padding: 1%;
+
+
+
+}
+
+#button1:hover,
+#button2:hover,
+#button3:hover,
+#button4:hover {
+    background-color: #28bbed;
+
+}
+
+#button1:disabled,
+#button2:disabled,
+#button3:disabled,
+#button4:disabled {
+    background: none;
+    color: white;
+
+}
+
+.battery {
+
+    position: absolute;
+    bottom: 0px;
+    width: 70%;
+    left: 20px;
+}
+
+#batmeter {
+    background-color: #57B354;
+    width: 25%;
+    height: auto;
+    border-radius: 10px;
+    border-color: white;
+    border-style: solid;
+
+}
+
+#hackedt {
+    position: absolute;
+    bottom: 0px;
+    right: 30px;
+
+}
+
+
+
+
+#terminal1,
+#terminal2,
+#terminal3,
+#terminal4 {
+
+    text-align: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 20px;
+    height: 40vw;
+    margin-top: 5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: #52B152;
+    border-style: dashed;
+}
+
+
+
+
+#corguess,
+#arrays,
+#shutdown {
+    font-size: 1.2vw;
+    font-family: 'terminal',
+    sans-serif;
+    text-align: center;
+    color: #28bbed;
+}
+
+
+
+*::-webkit-input-placeholder {
+    color: #7ADDD0;
+    opacity: 0.3;
+}
+
+
+
+@keyframes flickerAnimation {
+
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes coloranim {
+    0% {
+        color: #52B152;
+    }
+    50% {
+        color: white;
+    }
+    100% {
+        color: #52B152;
+    }
+
+}

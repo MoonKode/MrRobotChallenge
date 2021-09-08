@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<!--  Ter em consideraçao que todo o codigo esta escrito de forma a que todos os terminais sejam hackados,
+logo, assim que acabar a bateria, teremos sempre os 4 terminais completos, dai nao haver necessidade de
+ codar segunda saida do OS -->
+
+<head>
+    <meta charset="utf-8">
+    <title>Mr Reboot Code Challenge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat|Poppins|Ubuntu+Mono|Geo');
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <!--    Boot Screen    -->
+    <div id="screen">
+        <h1 id="nsoc">fSociety</h1>
+        <h1 id="distro">distro is booting...</h1>
+        <input id="input1" type="text" placeholder="Username?" size="14" onkeydown="if (event.keyCode == 13)
+                        document.getElementById('but1').click()" autofocus><br><br><br><br>
+        <button id="but1" onclick="checkUser()">click here to start</button>
+    </div>
+
+    <!--    Main Screen                  -->
+
+    <div id="mainscreen" style="display: none;">
+        <h1 id="nsoc1">fSociety</h1>
+        <p class="terminalText" id="p1" style="display: '';">
+            Welcome, <span id="usern">
+
+            </span>! Are you ready to do some hacking ?<br>No 
+            <span id="usern">charger</span> 
+            detected! you will have to move fast!
+        </p>
+        <p class="terminalText" id="p2" style="display: none;">Still got 
+            <span id="batt"></span> 
+            % battery left! let's hack some more terminals!
+        </p>
+
+        <div class="buttons">
+            <button id="button1" type="button" name="button" onclick="terminal1()">Hack terminal 1</button>
+            <button id="button2" type="button" name="button" onclick="terminal2()">Hack terminal 2</button>
+            <button id="button3" type="button" name="button" onclick="terminal3()">Hack terminal 3</button>
+            <button id="button4" type="button" name="button" onclick="terminal4()">Hack terminal 4</button>
+        </div>
+        <br>
+        <br>
+        <div class="battery">
+            <div id="batmeter" style="text-align:justify;">
+                <p class="terminalText" style="color:white;">
+                    Battery: 
+                    <span id="percentBattery"></span> %
+                </p>
+            </div>
+        </div>
+        <p class="terminalText" id="hackedt">Hacked Terminals : <span id="hackter"></span></p>
+    </div>
+
+    <!--               Terminal 1            -->
+
+    <div id="terminal1" style="display: none;">
+        <h1 id="nsoc1">terminal 1</h1>
+        <div id="checkpassword" style="display: '';">
+            <p class="terminalText">
+                This one looks easy! We just have to input the victim's password and I'll wipe out all his data!<br>
+                Good thing we already know it's "CapitalismDidNothingWrong".<br><br><br>
+            </p>
+            <input type="text" id="terminal1text" placeholder="Password?" onkeydown="if (event.keyCode == 13)
+                    document.getElementById('but2').click()">
+            <button id="but2" onclick="checkPass()">Submit</button>
+        </div>
+        <div id="passwordcorrect" style="display: none;">
+            <p class="terminalText" style="font-size: 39px;">Password accepted! Wiped all data! Good job !!</p>
+            <br><br><br><br><br><br>
+            <button id="but1" onclick="backtomain1();">Back to main menu</button>
+        </div>
+        <div id="wrongpass" style="display: none;">
+            <p class="terminalText" style="color: red;"><br><br>Wrong Password! (facepalm here! ) Please try again!</p>
+        </div>
+    </div>
+
+    <!--                                Terminal 2              -->
+    <div id="terminal2" style="display: none;">
+        <div id="ter2">
+            <h1 id="nsoc1">terminal 2</h1>
+            <p class="terminalText">On this one i'll have to use the Force! This may take a little while, but Master Yoda taught me well, so dont worry!</p>
+            <br>
+            <p id="corguess" style="font-family: 'terminal';"></p>
+            <button id="butBruteForce" onclick="bruteForce()">Brute Force Attack</button>
+        </div>
+        <div id="passwordcorrect1" style="display: none;">
+            <h1 id="nsoc1">terminal 2</h1>
+            <p class="terminalText" style="font-size: 39px;">Password accepted! BruteForce Succeeded! Good job !!</p>
+            <br><br><br><br><br><br>
+            <button id="but1" onclick="backtomain2();">Back to main menu</button>
+        </div>
+    </div>
+
+    <!--                                    Terminal 3                     -->
+
+    <div id="terminal3" style="display: none;">
+        <div id="ter3">
+            <h1 id="nsoc1">terminal 3</h1>
+            <p class="terminalText">Looks like we need to do some dectyption here! <br> Lets get rid of some trash characters, shall we ?</p>
+            <p id="decrypted" style="font-family: 'terminal';"></p>
+            <p id="deckey" style="color: #28bbed;display:none;font-family: 'terminal';">Decryption key acepted! Processing....</p>
+            <p id="dec1" style="color: #28bbed;display:none;font-family: 'terminal';"></p>
+            <button id="butTrash" onclick="trashOut()">Get rid of trash</button>
+        </div>
+        <div id="passwordcorrect3" style="display: none;">
+            <h1 id="nsoc1">terminal 3</h1>
+            <p class="terminalText" style="font-size: 39px;">Password decrypted and accpepted! Good job !!</p>
+            <br><br><br><br><br><br>
+            <button id="buttrash1" onclick="backtomain3()">Back to main menu</button>
+        </div>
+    </div>
+
+    <!--                                 Terminal 4                                        -->
+
+    <div id="terminal4" style="display: none;">
+        <div id="ter4">
+            <h1 id="nsoc1">terminal 4</h1>
+            <p class="terminalText">Ok.. this time we have to find the right combination of numbers! <br>We know that our victim only uses even numbers so.. let's go!</p>
+            <br>
+            <p id="arrays" style="font-family: 'terminal';"></p>
+            <p id="foundit" style="display: none;"></p>
+            <button id="findcorrectcombination" onclick="findcomb()">Find correct combination</button>
+        </div>
+        <div id="passwordcorrect4" style="display: none;">
+            <h1 id="nsoc1">terminal 4</h1>
+            <p class="terminalText" style="font-size: 39px;">Password accepted!Found the correct Sub-array!! Good job !!</p>
+            <br><br><br><br><br><br>
+            <button id="but1" onclick="backtomain4();">Back to main menu</button>
+        </div>
+    </div>
+    <div id="nobattery" style="display: none;">
+        <h1 id="nsoc1">out of Battery!</h1>
+        <p class="terminalText" style="font-size: 39px;">Well, That's it,<span id="usern"></span> I'm out of juice!<br> I was able to hack all 4 terminals! Elliot will be proud!!<br> Time to take a nap now! Good bye!<br><br></p>
+        <p id="shutdown" style="font-family: 'terminal';display: none;">Distro shutting down, please wait!</p>
+    </div>
+</body>
+</html>
