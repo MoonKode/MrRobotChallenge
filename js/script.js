@@ -176,7 +176,7 @@ const terminal4 = () => {
     document.getElementById('terminal4').style.display = '';
 }
 
-async function findcomb() {
+const findcomb = async () => {
     for (x in passcodes) {
         even = 0;
 
@@ -209,14 +209,14 @@ async function findcomb() {
 }
 
 /*----------------------------------------------------Other Stuff-------------------------------*/
-function drainBattery() {
+const drainBattery = () => {
     battery -= 25;
     document.getElementById("batt").innerHTML = battery;
     document.getElementById("p1").style.display = 'none';
     document.getElementById("p2").style.display = '';
 }
 
-function backtomain1() {
+const backtomain1 = () => {
     document.getElementById("button1").disabled = true;
     document.getElementById("button1").innerHTML = "HACKED";
     hackTerminals();
@@ -224,7 +224,7 @@ function backtomain1() {
     mainscreen();
 }
 
-function backtomain2() {
+const backtomain2 = () => {
     document.getElementById("button2").disabled = true;
     document.getElementById("button2").innerHTML = "HACKED";
     hackTerminals();
@@ -232,7 +232,7 @@ function backtomain2() {
     mainscreen();
 }
 
-function backtomain3() {
+const backtomain3 = () => {
     document.getElementById("button3").disabled = true;
     document.getElementById("button3").innerHTML = "HACKED";
     hackTerminals();
@@ -240,7 +240,7 @@ function backtomain3() {
     mainscreen();
 }
 
-function backtomain4() {
+const backtomain4 = () => {
     document.getElementById("button4").disabled = true;
     document.getElementById("button4").innerHTML = "HACKED";
     hackTerminals();
@@ -248,11 +248,11 @@ function backtomain4() {
     mainscreen();
 }
 
-function hackTerminals() {
+const hackTerminals = () => {
     hackedTerminals += 1;
     document.getElementById("hackter").innerHTML = hackedTerminals;
 }
 
-function sleep(ms) {
+const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
