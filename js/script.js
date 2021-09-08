@@ -185,7 +185,6 @@ const findcomb = async () => {
                 even += 1;
             }
             if (even == 4) {
-                var correctPass = passcodes[x];
                 var num = x;
             }
 
